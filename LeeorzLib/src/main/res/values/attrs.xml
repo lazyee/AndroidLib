@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NumberPicker">
+        <attr name="normalTextColor" format="color" />
+        <attr name="normalTextSize" format="dimension" />
+        <attr name="selecredTextColor" format="color" />
+        <attr name="selecredTextSize" format="dimension" />
+        <attr name="unitHight" format="dimension" />
+        <attr name="itemNumber" format="integer"/>
+        <attr name="lineColor" format="color|reference" />
+        <attr name="maskHight" format="dimension"/>
+        <attr name="noEmpty" format="boolean"/>
+        <attr name="isEnable" format="boolean"/>
+    </declare-styleable>
+
+    <attr name="cropImageStyle" format="reference" />
+
+    <declare-styleable name="CropImageView">
+        <attr name="highlightColor" format="reference|color" />
+        <attr name="showThirds" format="boolean" />
+        <attr name="showCircle" format="boolean" />
+        <attr name="showHandles">
+            <enum name="changing" value="0" />
+            <enum name="always" value="1" />
+            <enum name="never" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="reference" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsTabPaddingTopBottom" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+        <attr name="selectedTabTextColor" format="reference" />
+        <attr name="indicatorleftrightpad" format="dimension" />
+        <attr name="iconWidth" format="dimension" />
+        <attr name="iconHeigth" format="dimension" />
+    </declare-styleable>
+
+</resources>

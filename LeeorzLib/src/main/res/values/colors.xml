@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="crop__button_bar">#f3f3f3</color>
+    <color name="crop__button_text">#666666</color>
+    <color name="crop__selector_pressed">#1a000000</color>
+    <color name="crop__selector_focused">#77000000</color>
+
+
+    <!-- photo picker -->
+    <color name="pager_bg">#CA000000</color>
+    <color name="selected_bg">#44000000</color>
+    <color name="black_40">#282828</color>
+    <color name="common_primary">#f3f3f3</color>
+    <color name="text_40">#282828</color>
+    <color name="text_80">#505050</color>
+    <color name="text_120">#787878</color>
+
+    <color name="dividerLineColor">#FFd5dbe5</color>
+    <color name="discountProductItemBg">#FFf2f2f2</color>
+</resources>
