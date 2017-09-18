@@ -16,10 +16,21 @@ public class AppManager {
     }
 
     /**
+     * 单一实例
+     */
+    public static AppManager getAppManager() {
+        if (instance == null) {
+            instance = new AppManager();
+            activityStack = new Stack();
+        }
+        return instance;
+    }
+
+    /**
      * 返回stack size
      * @return
      */
-    public static int size(){
+    public int size(){
         if(activityStack == null)return 0;
         return activityStack.size();
     }
@@ -29,7 +40,7 @@ public class AppManager {
      * @param cls
      * @return
      */
-    public static boolean exist(Class<?> cls){
+    public boolean exist(Class<?> cls){
         try {
             for (Activity activity : activityStack) {
                 if (activity.getClass().equals(cls)) {
@@ -40,17 +51,6 @@ public class AppManager {
             e.printStackTrace();
         }
         return false;
-    }
-
-    /**
-     * 单一实例
-     */
-    public static AppManager getAppManager() {
-        if (instance == null) {
-            instance = new AppManager();
-            activityStack = new Stack();
-        }
-        return instance;
     }
 
     /**
