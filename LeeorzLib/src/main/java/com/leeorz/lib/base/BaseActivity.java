@@ -55,25 +55,14 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
 
     }
 
-
-    /**
-     * 设置默认内容
-     *
-     * @param layoutResID
-     */
-    public void setContentViewDefault(int layoutResID) {
-        View view = LayoutInflater.from(this).inflate(layoutResID, null);
-        this.setContentView(view);
-    }
-
     /**
      * 跳转Activity
      *
-     * @param activity
+     * @param clazz
      * @param bundle
      */
-    protected void gotoActivity(Class<? extends Activity> activity, Bundle bundle) {
-        Intent intent = new Intent(this, activity);
+    protected void gotoActivity(Class clazz, Bundle bundle) {
+        Intent intent = new Intent(this, clazz);
         if (bundle != null) {
             intent.putExtras(bundle);
         }
@@ -83,29 +72,45 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     /**
      * 跳转Activity
      *
-     * @param activity
+     * @param clazz
      */
-    protected void gotoActivity(Class<? extends Activity> activity) {
-        Intent intent = new Intent(this, activity);
-        startActivity(intent);
-
+    protected void gotoActivity(Class clazz) {
+        gotoActivity(clazz,null);
     }
 
+    protected void gotoActivity(String className){
+        gotoActivity(className,null);
+    }
 
+    protected void gotoActivity(String className,Bundle bundle){
+        try {
+            Intent intent = new Intent(this,Class.forName(className));
+            if (bundle != null) {
+                intent.putExtras(bundle);
+            }
+            startActivity(intent);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * 跳转activity for result
      *
-     * @param activity
+     * @param clazz
      * @param bundle
      * @param requestCode
      */
-    protected void gotoActivityForResult(Class<? extends Activity> activity, Bundle bundle, int requestCode) {
-        Intent intent = new Intent(this, activity);
+    protected void gotoActivityForResult(Class clazz, Bundle bundle, int requestCode) {
+        Intent intent = new Intent(this, clazz);
         if (bundle != null) {
             intent.putExtras(bundle);
         }
         startActivityForResult(intent, requestCode);
+    }
 
+    protected void gotoActivityForResult(Class clazz,int requestCode){
+        gotoActivityForResult(clazz,null,requestCode);
     }
 
     /**
