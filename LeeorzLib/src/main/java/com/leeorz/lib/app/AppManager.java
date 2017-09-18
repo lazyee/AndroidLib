@@ -16,6 +16,33 @@ public class AppManager {
     }
 
     /**
+     * 返回stack size
+     * @return
+     */
+    public static int size(){
+        if(activityStack == null)return 0;
+        return activityStack.size();
+    }
+
+    /**
+     * 是否存在某个activity
+     * @param cls
+     * @return
+     */
+    public static boolean exist(Class<?> cls){
+        try {
+            for (Activity activity : activityStack) {
+                if (activity.getClass().equals(cls)) {
+                    return true;
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
      * 单一实例
      */
     public static AppManager getAppManager() {
