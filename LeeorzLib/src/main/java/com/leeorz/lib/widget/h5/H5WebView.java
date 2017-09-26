@@ -3,11 +3,14 @@ package com.leeorz.lib.widget.h5;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -88,24 +91,33 @@ public class H5WebView extends WebView {
                 }else{
                     view.loadUrl(url);
                 }
-
                 return true;
             }
 
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
 
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
                 if(webViewInterceptUrlCallback != null){
                     if(!webViewInterceptUrlCallback.onInterceptUrl(url)){
-//                        view.loadUrl(url);
-                        super.onPageStarted(view, url, favicon);
+                        return super.shouldInterceptRequest(view, url);
                     }
                 }else{
-//                    view.loadUrl(url);
-                    super.onPageStarted(view, url, favicon);
+                    return super.shouldInterceptRequest(view, url);
                 }
+                return super.shouldInterceptRequest(view, url);
+            }
 
-
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                if(webViewInterceptUrlCallback != null){
+                    if(!webViewInterceptUrlCallback.onInterceptUrl(request.getUrl().toString())){
+                        return super.shouldInterceptRequest(view, request);
+                    }
+                }else{
+                    return super.shouldInterceptRequest(view, request);
+                }
+                return super.shouldInterceptRequest(view, request);
             }
         });
     }
