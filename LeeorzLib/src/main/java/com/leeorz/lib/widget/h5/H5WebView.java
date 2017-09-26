@@ -93,32 +93,6 @@ public class H5WebView extends WebView {
                 }
                 return true;
             }
-
-
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-                if(webViewInterceptUrlCallback != null){
-                    if(!webViewInterceptUrlCallback.onInterceptUrl(url)){
-                        return super.shouldInterceptRequest(view, url);
-                    }
-                }else{
-                    return super.shouldInterceptRequest(view, url);
-                }
-                return super.shouldInterceptRequest(view, url);
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                if(webViewInterceptUrlCallback != null){
-                    if(!webViewInterceptUrlCallback.onInterceptUrl(request.getUrl().toString())){
-                        return super.shouldInterceptRequest(view, request);
-                    }
-                }else{
-                    return super.shouldInterceptRequest(view, request);
-                }
-                return super.shouldInterceptRequest(view, request);
-            }
         });
     }
 
