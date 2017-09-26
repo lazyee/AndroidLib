@@ -1,6 +1,7 @@
 package com.leeorz.lib.widget.h5;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -89,6 +90,22 @@ public class H5WebView extends WebView {
                 }
 
                 return true;
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+
+                if(webViewInterceptUrlCallback != null){
+                    if(!webViewInterceptUrlCallback.onInterceptUrl(url)){
+//                        view.loadUrl(url);
+                        super.onPageStarted(view, url, favicon);
+                    }
+                }else{
+//                    view.loadUrl(url);
+                    super.onPageStarted(view, url, favicon);
+                }
+
+
             }
         });
     }

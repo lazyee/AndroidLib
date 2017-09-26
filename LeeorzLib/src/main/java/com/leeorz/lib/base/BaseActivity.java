@@ -93,7 +93,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
             e.printStackTrace();
         }
     }
-    
+
     /**
      * 跳转activity for result
      *
