@@ -77,6 +77,11 @@ public class H5WebView extends WebView {
         getSettings().setDomStorageEnabled(true);
         getSettings().setDatabaseEnabled(true);
 
+        getSettings().setAppCacheMaxSize(1024*1024*8);
+        String appCachePath = getContext().getCacheDir().getAbsolutePath();
+        getSettings().setAppCachePath(appCachePath);
+        getSettings().setAppCacheEnabled(true);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
