@@ -4,12 +4,13 @@ package com.leeorz.lib.api;
  * Created by lee on 17/2/16.
  */
 public class ApiResult<T> {
-    private int status;
+    private final int DEF_RESULT_CODE = -999;
+    private int status = DEF_RESULT_CODE;
     private T result;
     private String message;
 
     @Deprecated
-    private int code;
+    private int code = DEF_RESULT_CODE;
     @Deprecated
     private T obj;
     @Deprecated
@@ -30,6 +31,9 @@ public class ApiResult<T> {
     }
 
     public int getStatus() {
+        if(status == DEF_RESULT_CODE){
+            return getCode();
+        }
         return status;
     }
 
@@ -38,6 +42,9 @@ public class ApiResult<T> {
     }
 
     public T getResult() {
+        if(result == null){
+           return getObj();
+        }
         return result;
     }
 
