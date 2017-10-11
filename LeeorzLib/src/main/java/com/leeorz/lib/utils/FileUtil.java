@@ -1128,7 +1128,7 @@ public class FileUtil {
         return "";
     }
 
-    public String readFile(String fileName) throws IOException {
+    public static String readFile(String fileName) throws IOException {
         File file = new File(fileName);
         FileInputStream fis = new FileInputStream(file);
         int length = fis.available();
@@ -1139,7 +1139,7 @@ public class FileUtil {
         return res;
     }
 
-    public boolean saveFile(String fileContent, String file) {
+    public static boolean saveFile(String fileContent, String file) {
         try {
 
             FileOutputStream outStream = new FileOutputStream(file);
