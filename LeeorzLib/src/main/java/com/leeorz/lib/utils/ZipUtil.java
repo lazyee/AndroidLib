@@ -2,6 +2,10 @@ package com.leeorz.lib.utils;
 
 import android.content.Context;
 
+import net.lingala.zip4j.core.ZipFile;
+import net.lingala.zip4j.exception.ZipException;
+import net.lingala.zip4j.progress.ProgressMonitor;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -179,5 +183,66 @@ public class ZipUtil {
 			zipEntry = zipInputStream.getNextEntry();
 		}
 		zipInputStream.close();
+	}
+
+
+	public static void unZip(File zipFile, String outputFilePath, OnUnZipCallback onUnZipCallback, boolean isDeleteZip) throws ZipException {
+		unZip(zipFile,null,outputFilePath,onUnZipCallback,isDeleteZip);
+	}
+
+	public static void unZip(final File zipFile, String password, final String outputFilePath, final OnUnZipCallback onUnZipCallback, final boolean isDeleteZip) throws ZipException {
+		ZipFile zFile = new ZipFile(zipFile);
+		zFile.setFileNameCharset("UTF-8");
+
+		if (!zFile.isValidZipFile()) { //
+			throw new ZipException("该文件不是有效的压缩包!");
+		}
+		File destDir = new File(outputFilePath); //
+		if (destDir.isDirectory() && !destDir.exists()) {
+			destDir.mkdir();
+		}
+		if (zFile.isEncrypted()) {
+			zFile.setPassword(password == null?"":password); // 设置解压密码
+		}
+
+		final ProgressMonitor progressMonitor = zFile.getProgressMonitor();
+		Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					int precentDone = 0;
+					if (onUnZipCallback == null)return;
+
+					onUnZipCallback.onStart();
+					while (true) {
+						// 每隔50ms,发送一个解压进度出去
+						Thread.sleep(1);
+						precentDone = progressMonitor.getPercentDone();
+						onUnZipCallback.onUnZipping(precentDone);
+						if (precentDone >= 100) {
+							break;
+						}
+					}
+					onUnZipCallback.onSuccess();
+				} catch (InterruptedException e) {
+					onUnZipCallback.onFail();
+					e.printStackTrace();
+				} finally {
+					if (isDeleteZip) {
+						zipFile.delete();//将原压缩文件删除
+					}
+				}
+			}
+		});
+		thread.start();
+		zFile.setRunInThread(true); //true 在子线程中进行解压 , false主线程中解压
+		zFile.extractAll(outputFilePath); //将压缩文件解压到filePath中...
+	}
+
+	public interface OnUnZipCallback{
+		void onStart();
+		void onUnZipping(int progress);
+		void onFail();
+		void onSuccess();
 	}
 }

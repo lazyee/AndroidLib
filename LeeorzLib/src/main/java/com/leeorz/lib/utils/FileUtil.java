@@ -1080,6 +1080,13 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 从Asset中复制文件到指定目录
+     * @param context
+     * @param assetName
+     * @param saveFilePath
+     * @return
+     */
     public static boolean copyAssetFile(Context context, String assetName, String saveFilePath) {
         try {
             File desFile = new File(saveFilePath);
@@ -1098,7 +1105,7 @@ public class FileUtil {
             is.close();
             return true;
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return false;
     }
@@ -1119,6 +1126,33 @@ public class FileUtil {
 
         }
         return "";
+    }
+
+    public String readFile(String fileName) throws IOException {
+        File file = new File(fileName);
+        FileInputStream fis = new FileInputStream(file);
+        int length = fis.available();
+        byte[] buffer = new byte[length];
+        fis.read(buffer);
+        String res = new String(buffer, "UTF-8");
+        fis.close();
+        return res;
+    }
+
+    public boolean saveFile(String fileContent, String file) {
+        try {
+
+            FileOutputStream outStream = new FileOutputStream(file);
+            outStream.write(fileContent.getBytes());
+            outStream.close();
+            return true;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }
