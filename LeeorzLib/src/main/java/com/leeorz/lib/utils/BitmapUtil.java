@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 
 import com.leeorz.lib.app.AppConfig;
@@ -952,7 +953,7 @@ public class BitmapUtil {
      * @return
      */
     public static String ratingImage(int angle, String filePath) {
-        Logger.v("ratingImage", "rating angle:" + angle + ", filePath:" + filePath);
+        Log.v("ratingImage", "rating angle:" + angle + ", filePath:" + filePath);
         if (filePath != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(filePath);//根据Path读取资源图片
             if (angle != 0) {

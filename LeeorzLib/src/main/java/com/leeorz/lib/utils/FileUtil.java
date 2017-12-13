@@ -1123,7 +1123,7 @@ public class FileUtil {
             isr.close();
             return result;
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return "";
     }

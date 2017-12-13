@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 
 import com.leeorz.lib.R;
@@ -55,7 +56,7 @@ public class PhotoGridAdapter extends SelectableAdapter<PhotoGridAdapter.PhotoVi
         View itemView = inflater.inflate(R.layout.item_photo, parent, false);
         PhotoViewHolder holder = new PhotoViewHolder(itemView);
         if (viewType == ITEM_TYPE_CAMERA) {
-            holder.vSelected.setVisibility(View.GONE);
+            holder.rlSelected.setVisibility(View.GONE);
             holder.ivPhoto.setScaleType(ImageView.ScaleType.CENTER);
             holder.ivPhoto.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -86,17 +87,24 @@ public class PhotoGridAdapter extends SelectableAdapter<PhotoGridAdapter.PhotoVi
 
 //      DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true).imageScaleType(ImageScaleType.EXACTLY_STRETCHED).bitmapConfig(Bitmap.Config.RGB_565).showImageOnFail(R.drawable.ic_broken_image_black_48dp).build();
 //      ImageLoader.getInstance().displayImage("file://" + photo.getPath(), holder.ivPhoto, options);
-            Picasso.with(mContext)
-                    .load(new File(photo.getPath()))
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_photo_black_48dp)
-                    .error(R.drawable.ic_broken_image_black_48dp)
-                    .into(holder.ivPhoto);
+
+            if(holder.ivPhoto.getTag() != photo.getPath()){
+                Picasso.with(mContext)
+                        .load(new File(photo.getPath()))
+                        .centerCrop()
+                        .placeholder(R.drawable.shape_photo_bg)
+                        .error(R.drawable.ic_broken_image)
+                        .resize(300,300)
+                        .into(holder.ivPhoto);
+            }
+
+            holder.ivPhoto.setTag(photo.getPath());
 
             final boolean isChecked = isSelected(photo);
 
             holder.vSelected.setSelected(isChecked);
             holder.ivPhoto.setSelected(isChecked);
+            holder.cbSelected.setChecked(isChecked);
 
             holder.ivPhoto.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -143,11 +151,15 @@ public class PhotoGridAdapter extends SelectableAdapter<PhotoGridAdapter.PhotoVi
     public static class PhotoViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivPhoto;
         private View vSelected;
+        private View rlSelected;
+        private CheckBox cbSelected;
 
         public PhotoViewHolder(View itemView) {
             super(itemView);
             ivPhoto = (ImageView) itemView.findViewById(R.id.iv_photo);
             vSelected = itemView.findViewById(R.id.v_selected);
+            rlSelected = itemView.findViewById(R.id.rl_selected);
+            cbSelected = itemView.findViewById(R.id.cb_selected);
         }
     }
 

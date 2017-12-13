@@ -2,8 +2,11 @@ package com.leeorz.lib.widget.photopicker.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import com.leeorz.lib.R;
 import com.leeorz.lib.widget.photopicker.widget.TouchImageView;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -39,19 +43,17 @@ public class PhotoPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.item_pager, container, false);
 
         TouchImageView imageView = (TouchImageView) itemView.findViewById(R.id.iv_pager);
-
-//        final String path = paths.get(position);
-//        final Uri uri;
-//        if (path.startsWith("http")) {
-//            uri = Uri.parse(path);
-//        } else {
-//            uri = Uri.fromFile(new File(path));
-//        }
-        String path = urlEncode(paths.get(position));
+        String path = paths.get(position);
+        final Uri uri;
+        if (path.startsWith("http")) {
+            uri = Uri.parse(path);
+        } else {
+            uri = Uri.fromFile(new File(path));
+        }
         Picasso.with(mContext)
-                .load(path)
-//            .override(800, 800)
-                .error(R.drawable.ic_broken_image_black_48dp)
+                .load(uri)
+                .config(Bitmap.Config.RGB_565)
+                .error(R.drawable.ic_broken_image)
                 .into(imageView);
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -95,25 +97,6 @@ public class PhotoPagerAdapter extends PagerAdapter {
     @Override
     public int getItemPosition(Object object) {
         return POSITION_NONE;
-    }
-
-    private String urlEncode(String str) {
-        String data = "";
-        try {
-            for (int i = 0; i < str.length(); i++) {
-                char c = str.charAt(i);
-                if (c + "".getBytes().length > 1 && c != ':' && c != '/' && c != '?') {
-                    data = data + URLEncoder.encode(c + "", "utf-8");
-                } else {
-                    data = data + c;
-                }
-            }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } finally {
-            data = TextUtils.isEmpty(data) ? str : data;
-        }
-        return data;
     }
 
 }

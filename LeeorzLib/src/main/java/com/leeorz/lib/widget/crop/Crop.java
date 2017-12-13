@@ -44,6 +44,7 @@ public class Crop {
 
     private Crop(Uri source, Uri destination) {
         cropIntent = new Intent();
+        cropIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         cropIntent.setData(source);
         cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, destination);
     }

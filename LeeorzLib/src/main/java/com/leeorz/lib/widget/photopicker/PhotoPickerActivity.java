@@ -60,11 +60,8 @@ public class PhotoPickerActivity extends AppCompatActivity implements ImagePager
     maxCount = getIntent().getIntExtra(EXTRA_MAX_COUNT, DEFAULT_MAX_COUNT);
     boolean showCamera = getIntent().getBooleanExtra(EXTRA_SHOW_CAMERA, true);
 
-    pickerFragment =
-        (PhotoPickerFragment) getSupportFragmentManager().findFragmentById(R.id.photoPickerFragment);
-
+    pickerFragment = (PhotoPickerFragment) getSupportFragmentManager().findFragmentById(R.id.photoPickerFragment);
     pickerFragment.getPhotoGridAdapter().setShowCamera(showCamera);
-
     pickerFragment.getPhotoGridAdapter().setOnItemCheckListener(new OnItemCheckListener() {
       @Override public boolean OnItemCheck(int position, Photo photo, final boolean isCheck, int selectedItemCount) {
 

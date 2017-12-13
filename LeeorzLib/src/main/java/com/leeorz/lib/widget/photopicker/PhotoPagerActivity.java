@@ -38,8 +38,7 @@ public class PhotoPagerActivity extends AppCompatActivity {
         int currentItem = getIntent().getIntExtra(EXTRA_CURRENT_ITEM, 0);
         List<String> paths = getIntent().getStringArrayListExtra(EXTRA_PHOTOS);
 
-        pagerFragment =
-                (ImagePagerFragment) getSupportFragmentManager().findFragmentById(R.id.photoPagerFragment);
+        pagerFragment = (ImagePagerFragment) getSupportFragmentManager().findFragmentById(R.id.photoPagerFragment);
         pagerFragment.setPhotos(paths, currentItem);
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);

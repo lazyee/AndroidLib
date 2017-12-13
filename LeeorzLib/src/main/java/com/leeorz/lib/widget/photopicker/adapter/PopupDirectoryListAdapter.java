@@ -1,6 +1,7 @@
 package com.leeorz.lib.widget.photopicker.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.leeorz.lib.R;
 import com.leeorz.lib.widget.photopicker.entity.PhotoDirectory;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,9 +80,17 @@ public class PopupDirectoryListAdapter extends BaseAdapter {
 
     public void bindData(PhotoDirectory directory) {
 //      ImageLoader.getInstance().displayImage("file://" + directory.getCoverPath(), ivCover);
+      Uri uri;
+      if(directory.getCoverPath().startsWith("http")){
+        uri = Uri.parse(directory.getCoverPath());
+      }else{
+        uri = Uri.fromFile(new File(directory.getCoverPath()));
+      }
       Picasso.with(context)
-          .load(directory.getCoverPath())
-          .into(ivCover);
+              .load(uri)
+              .centerCrop()
+              .resize(300,300)
+              .into(ivCover);
       tvName.setText(directory.getName());
     }
   }

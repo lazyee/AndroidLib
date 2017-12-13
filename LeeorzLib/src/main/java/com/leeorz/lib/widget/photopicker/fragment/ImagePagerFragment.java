@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.LinearLayout;
 
 import com.leeorz.lib.R;
 import com.leeorz.lib.widget.photopicker.adapter.PhotoPagerAdapter;
@@ -191,6 +192,7 @@ public class ImagePagerFragment extends Fragment {
     // values scale and position the full size version down to the thumbnail
     // size/location, from which we'll animate it back up
 
+
 //    ViewHelper.setPivotX(mViewPager, 0);
 //    ViewHelper.setPivotY(mViewPager, 0);
 //    ViewHelper.setScaleX(mViewPager, (float) thumbnailWidth / mViewPager.getWidth());
@@ -200,12 +202,17 @@ public class ImagePagerFragment extends Fragment {
 
     // Animate scale and translation to go from thumbnail to full size
     mViewPager.animate()
-        .setDuration(duration)
-        .scaleX(1)
-        .scaleY(1)
-        .translationX(0)
-        .translationY(0)
-        .setInterpolator(new DecelerateInterpolator());
+          .setDuration(3000)
+//          .setDuration(duration)
+//            .scaleXBy(thumbnailWidth / mViewPager.getWidth())
+//            .scaleYBy(thumbnailHeight / mViewPager.getHeight())
+//            .x(thumbnailLeft)
+//            .y(thumbnailTop)
+//          .scaleX(1)
+//          .scaleY(1)
+//          .translationX(0)
+//          .translationY(0)
+          .setInterpolator(new DecelerateInterpolator());
 
     // Fade in the black background
     ObjectAnimator bgAnim = ObjectAnimator.ofInt(mViewPager.getBackground(), "alpha", 0, 255);
@@ -242,12 +249,18 @@ public class ImagePagerFragment extends Fragment {
     // Animate image back to thumbnail size/location
 //    ViewPropertyAnimator.animate(mViewPager)
     mViewPager.animate()
-        .setDuration(duration)
-        .setInterpolator(new AccelerateInterpolator())
-        .scaleX((float) thumbnailWidth / mViewPager.getWidth())
-        .scaleY((float) thumbnailHeight / mViewPager.getHeight())
-        .translationX(thumbnailLeft)
-        .translationY(thumbnailTop)
+            .setDuration(duration)
+//            .setDuration(5000)
+            .alpha(0)
+//            .setInterpolator(new AccelerateInterpolator())
+//            .rotationX(0)
+//            .rotationY(0)
+//            .scaleX((float) thumbnailWidth / mViewPager.getWidth())
+//            .scaleY((float) thumbnailHeight / mViewPager.getHeight())
+//            .translationX(thumbnailLeft)
+//            .translationY(thumbnailTop)
+
+
         .setListener(new Animator.AnimatorListener() {
           @Override public void onAnimationStart(Animator animation) {
           }
