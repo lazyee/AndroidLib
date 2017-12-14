@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/menu/menu_preview.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/src/main/res/menu/menu_preview.xml"
+    },
+    {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/menu/menu_picker.xml",
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/src/main/res/menu/menu_picker.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/menu/menu_picker.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/src/main/res/menu/menu_picker.xml"
     },
     {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/menu/menu_preview.xml",

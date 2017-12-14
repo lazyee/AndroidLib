@@ -2,5 +2,9 @@
     {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/androidTest/debug/drawable-v23/abc_control_background_material.xml",
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/drawable-v23/abc_control_background_material.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/androidTest/debug/drawable-v23/abc_control_background_material.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/drawable-v23/abc_control_background_material.xml"
     }
 ]

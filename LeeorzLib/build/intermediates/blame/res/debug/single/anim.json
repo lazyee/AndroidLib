@@ -4,6 +4,10 @@
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_fade_out.xml"
     },
     {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/anim_none.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/src/main/res/anim/anim_none.xml"
+    },
+    {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
@@ -16,8 +20,20 @@
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_out_top.xml"
     },
     {
-        "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_in_bottom.xml"
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/anim_right_in.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/src/main/res/anim/anim_right_in.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_fade_in.xml"
     },
     {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
@@ -28,16 +44,16 @@
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_in_top.xml"
     },
     {
-        "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/anim_none.xml",
-        "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/src/main/res/anim/anim_none.xml"
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_popup_exit.xml"
     },
     {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_fade_in.xml"
     },
     {
-        "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_popup_exit.xml"
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_popup_enter.xml"
     },
     {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/anim_right_out.xml",
@@ -48,7 +64,43 @@
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/src/main/res/anim/anim_right_in.xml"
     },
     {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
         "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
         "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/anim_right_out.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/src/main/res/anim/anim_right_out.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/anim_none.xml",
+        "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/src/main/res/anim/anim_none.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/juweitu/Documents/github/lib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/juweitu/Documents/github/LeeorzLib/LeeorzLib/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/res/anim/abc_slide_out_bottom.xml"
     }
 ]

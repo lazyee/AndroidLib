@@ -29,6 +29,9 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
+    <color name="colorAccent">#00FF00</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
     <color name="common_primary">#f3f3f3</color>
     <color name="crop__button_bar">#f3f3f3</color>
     <color name="crop__button_text">#666666</color>
@@ -1418,6 +1421,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:orientation">horizontal</item>
         <item name="android:background">@drawable/crop__selectable_background</item>
     </style>
     <style name="Crop.ActionButtonText">
@@ -1432,11 +1436,9 @@
         <item name="android:textSize">13sp</item>
     </style>
     <style name="Crop.ActionButtonText.Cancel">
-        <item name="android:drawableLeft">@drawable/crop__ic_cancel</item>
         <item name="android:text">@string/crop__cancel</item>
     </style>
     <style name="Crop.ActionButtonText.Done">
-        <item name="android:drawableLeft">@drawable/crop__ic_done</item>
         <item name="android:text">@string/crop__done</item>
     </style>
     <style name="Crop.DoneCancelBar">
