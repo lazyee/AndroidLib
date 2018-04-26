@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.leeorz.lib.utils.UnitUtil;
-
 import com.leeorz.lib.widget.loadmore.AutoLoadMoreListView;
 import com.leeorz.lib.widget.refresh.header.CircleProgressHeader;
 
@@ -17,7 +16,7 @@ import com.leeorz.lib.widget.refresh.header.CircleProgressHeader;
  * created on: 2017/6/27 下午4:28
  * description:
  */
-public class RefreshListView extends RefreshLayout{
+public class RefreshListView extends RefreshLayout {
 
     private AutoLoadMoreListView autoLoadMoreListView;
     private CircleProgressHeader refreshHeader;
@@ -42,7 +41,7 @@ public class RefreshListView extends RefreshLayout{
         autoLoadMoreListView.setOverScrollMode(OVER_SCROLL_NEVER);
 
         refreshHeader = new CircleProgressHeader(getContext());
-        refreshHeader.setVisiableHeight(0);
+        refreshHeader.setVisibleHeight(0);
 
         setRefreshHeader(refreshHeader);
         addView(autoLoadMoreListView);

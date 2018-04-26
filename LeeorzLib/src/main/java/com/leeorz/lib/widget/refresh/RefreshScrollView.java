@@ -44,7 +44,7 @@ public class RefreshScrollView extends RefreshLayout {
         scrollView.setOverScrollMode(OVER_SCROLL_NEVER);
 
         refreshHeader = new CircleProgressHeader(getContext());
-        refreshHeader.setVisiableHeight(0);
+        refreshHeader.setVisibleHeight(0);
     }
 
     @Override

@@ -25,6 +25,7 @@ public abstract class RefreshLayout extends LinearLayout {
     private boolean isRefreshing = false;
     private boolean isRefreshComplete = false;
     private OnRefreshListener onRefreshListener;
+    private int TOUCH_ACTION = -1;
     public RefreshLayout(Context context) {
         super(context);
         initView();
@@ -89,7 +90,9 @@ public abstract class RefreshLayout extends LinearLayout {
     private boolean isMoveX = false;
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()) {
+        Log.e("TAG","ev.getAction():" + ev.getAction());
+        TOUCH_ACTION = ev.getAction();
+        switch (TOUCH_ACTION) {
             case MotionEvent.ACTION_DOWN:
                 isMoveX = false;
                 lastY = (int) ev.getRawY();
@@ -100,8 +103,10 @@ public abstract class RefreshLayout extends LinearLayout {
                 dispatchTouchEventSupper(ev);
                 return true;
             case MotionEvent.ACTION_MOVE:
-                moveY = ev.getRawY() - lastY;
-                lastY = ev.getRawY();
+
+                float nowY = ev.getRawY();
+                moveY = nowY - lastY;
+                lastY = nowY;
 
                 float distanceX = Math.abs(ev.getX() - startX);
                 float distanceY = Math.abs(ev.getY() - startY);
@@ -109,13 +114,13 @@ public abstract class RefreshLayout extends LinearLayout {
                     isMoveX = true;
                 }
 
-                if ((isMove2Top() && !isMoveX) || refreshHeader.getVisiableHeight() > 0) {
-                    int totalY = (int) (refreshHeader.getVisiableHeight() + moveY * SCROLL_RATIO);
+                if ((isMove2Top() && !isMoveX) || refreshHeader.getVisibleHeight() > 0) {
+                    int totalY = (int) (refreshHeader.getVisibleHeight() + Math.ceil(moveY * SCROLL_RATIO));
                     totalY = totalY > 0 ? totalY : 0;
-                    refreshHeader.setVisiableHeight(totalY);
+                    refreshHeader.setVisibleHeight(totalY);
                     calculateProgress();
 
-                    if(refreshHeader.getVisiableHeight() > 0 ){
+                    if(refreshHeader.getVisibleHeight() > 0 ){
                         MotionEvent cancelEvent = ev;
                         MotionEvent e = MotionEvent.obtain(cancelEvent.getDownTime(),
                                 cancelEvent.getEventTime() + ViewConfiguration.getLongPressTimeout(),
@@ -146,7 +151,7 @@ public abstract class RefreshLayout extends LinearLayout {
     }
 
     private void judeCanRefresh(){
-        if (refreshHeader.getVisiableHeight() >= refreshHeader.getContainerHeight() && !isRefreshing && onRefreshListener != null) {
+        if (refreshHeader.getVisibleHeight() >= refreshHeader.getContainerHeight() && !isRefreshing && onRefreshListener != null) {
             isRefreshing = true;
             refreshHeader.onRefresh();
             onRefreshListener.onRefresh();
@@ -157,13 +162,9 @@ public abstract class RefreshLayout extends LinearLayout {
         return super.dispatchTouchEvent(ev);
     }
 
-
-
-
-
-
     private void resetHeaderHeight() {
-        int height = refreshHeader.getVisiableHeight();
+
+        int height = refreshHeader.getVisibleHeight();
         if (height == 0) return;
 
         if (isRefreshing && height <= refreshHeader.getContainerHeight()) {
@@ -180,8 +181,8 @@ public abstract class RefreshLayout extends LinearLayout {
 
     @Override
     public void computeScroll() {
-        if (scroller.computeScrollOffset()) {
-            refreshHeader.setVisiableHeight(scroller.getCurrY());
+        if (scroller.computeScrollOffset() && TOUCH_ACTION != MotionEvent.ACTION_MOVE) {
+            refreshHeader.setVisibleHeight(scroller.getCurrY());
             calculateProgress();
             postInvalidate();
         }else{
@@ -206,7 +207,7 @@ public abstract class RefreshLayout extends LinearLayout {
      */
     private void calculateProgress() {
         if(isRefreshComplete || isRefreshing)return;
-        int progress = (int) (refreshHeader.getVisiableHeight() / (refreshHeader.getContainerHeight() * 1.0f) * 100);
+        int progress = (int) (refreshHeader.getVisibleHeight() / (refreshHeader.getContainerHeight() * 1.0f) * 100);
         progress = progress > 100 ? 100 : progress;
         refreshHeader.onProgress(progress);
     }

@@ -3,7 +3,6 @@ package com.leeorz.lib.widget.refresh;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.leeorz.lib.widget.loadmore.recycleview.AutoLoadMoreRecycleView;
@@ -37,7 +36,7 @@ public class RefreshRecycleView extends RefreshLayout {
         autoLoadMoreRecycleView = new AutoLoadMoreRecycleView(getContext());
         refreshHeader = new CircleProgressHeader(getContext());
 
-        refreshHeader.setVisiableHeight(0);
+        refreshHeader.setVisibleHeight(0);
 
         setRefreshHeader(refreshHeader);
         addView(autoLoadMoreRecycleView);

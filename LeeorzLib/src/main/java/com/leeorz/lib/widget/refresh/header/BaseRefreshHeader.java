@@ -2,6 +2,7 @@ package com.leeorz.lib.widget.refresh.header;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import com.leeorz.lib.app.AppConfig;
 public class BaseRefreshHeader extends LinearLayout implements IRefreshHeader {
     protected View contentView;
     protected int containerHeight;
+    protected int contentViewHeight;
 
     public BaseRefreshHeader(Context context) {
         super(context);
@@ -41,8 +43,9 @@ public class BaseRefreshHeader extends LinearLayout implements IRefreshHeader {
 
 
     @Override
-    public int getVisiableHeight() {
-        return contentView.getLayoutParams().height;
+    public int getVisibleHeight() {
+        return contentViewHeight;
+//        return contentView.getLayoutParams().height;
     }
 
     @Override
@@ -66,11 +69,14 @@ public class BaseRefreshHeader extends LinearLayout implements IRefreshHeader {
     }
 
     @Override
-    public void setVisiableHeight(int height) {
+    public void setVisibleHeight(int height) {
+        Log.e("TAG","setVisibleHeight:" + height);
         if (height < 0) height = 0;
+        contentViewHeight = height;
         LayoutParams lp = (LayoutParams) contentView.getLayoutParams();
         lp.height = height;
         lp.width = AppConfig.SCREEN_WIDTH;
         contentView.setLayoutParams(lp);
+
     }
 }
