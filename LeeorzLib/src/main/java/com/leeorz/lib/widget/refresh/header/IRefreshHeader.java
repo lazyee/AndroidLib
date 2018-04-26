@@ -8,10 +8,10 @@ package com.leeorz.lib.widget.refresh.header;
  */
 public interface IRefreshHeader {
 
-    int getVisiableHeight();
+    int getVisibleHeight();
     int getContainerHeight();
     void onProgress(int progress);
     void onRefresh();
     void onRefreshComplete();
-    void setVisiableHeight(int height);
+    void setVisibleHeight(int height);
 }
