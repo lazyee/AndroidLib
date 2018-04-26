@@ -90,7 +90,6 @@ public abstract class RefreshLayout extends LinearLayout {
     private boolean isMoveX = false;
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e("TAG","ev.getAction():" + ev.getAction());
         TOUCH_ACTION = ev.getAction();
         switch (TOUCH_ACTION) {
             case MotionEvent.ACTION_DOWN:

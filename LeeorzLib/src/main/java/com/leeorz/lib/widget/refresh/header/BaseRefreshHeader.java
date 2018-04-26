@@ -70,7 +70,6 @@ public class BaseRefreshHeader extends LinearLayout implements IRefreshHeader {
 
     @Override
     public void setVisibleHeight(int height) {
-        Log.e("TAG","setVisibleHeight:" + height);
         if (height < 0) height = 0;
         contentViewHeight = height;
         LayoutParams lp = (LayoutParams) contentView.getLayoutParams();
