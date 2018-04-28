@@ -1,23 +1,13 @@
 package com.leeorz.lib.widget.h5;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.View;
-import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * author: leeorz
