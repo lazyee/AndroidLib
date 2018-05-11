@@ -7,20 +7,9 @@
     android:orientation="vertical"
     tools:context="com.leeorz.app.leeorzlib.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
-    <Button
-        android:id="@+id/btnOpenCamera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="打开摄像头"/>
-    <Button
-        android:id="@+id/btnOpenAlbum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="打开相册"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

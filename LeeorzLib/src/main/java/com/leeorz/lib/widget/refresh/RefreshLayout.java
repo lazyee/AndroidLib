@@ -63,7 +63,8 @@ public abstract class RefreshLayout extends LinearLayout {
         if(!isMove2Top() || isRefreshing)return;
         isRefreshComplete = false;
         isRefreshing = false;
-        scroller.startScroll(0,0,0,refreshHeader.getContainerHeight() + 50,500);
+        final int scrollHeight = refreshHeader.getContainerHeight() + 50;
+        scroller.startScroll(0,0,0,scrollHeight,500);
         invalidate();
         new Thread(){
             @Override
@@ -74,6 +75,9 @@ public abstract class RefreshLayout extends LinearLayout {
                     refreshHeader.post(new Runnable() {
                         @Override
                         public void run() {
+                            if(refreshHeader.getVisibleHeight() == 0){
+                                refreshHeader.setVisibleHeight(scrollHeight);
+                            }
                             judeCanRefresh();
                             resetHeaderHeight();
                         }
