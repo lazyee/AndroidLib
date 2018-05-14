@@ -1,40 +1,36 @@
 package com.leeorz.app.leeorzlib;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
+import android.view.View;
 
 import com.leeorz.lib.base.BaseActivity;
-import com.leeorz.lib.widget.refresh.RefreshListView;
 
-public class MainActivity extends BaseActivity{
+/**
+ * author: leeorz
+ * email:378229364@qq.com
+ * created on: 2018/5/14 下午6:33
+ * description:
+ */
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
+
+        findViewById(R.id.btn1).setOnClickListener(this);
+        findViewById(R.id.btn2).setOnClickListener(this);
     }
 
-    private class FragmentAdapter extends FragmentPagerAdapter{
-
-        public FragmentAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            Log.e("----->","position:" + position);
-            return RefreshListViewFragment.newInstance();
-        }
-
-        @Override
-        public int getCount() {
-            return 10;
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn1:
+                gotoActivity(RefreshListViewActivity.class);
+                break;
+            case R.id.btn2:
+                gotoActivity(RefreshListViewActivity.class);
+                break;
         }
     }
 }
