@@ -35,6 +35,7 @@ public class BaseRefreshHeader extends LinearLayout implements IRefreshHeader {
     public void setContentView(int resID){
         contentView = LayoutInflater.from(getContext()).inflate(resID,null);
         addView(contentView);
+        setVisibleHeight(0);
     }
 
     public void setContainerHeight(int height){
