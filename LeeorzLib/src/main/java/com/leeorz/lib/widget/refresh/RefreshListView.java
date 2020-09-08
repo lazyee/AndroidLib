@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.leeorz.lib.utils.UnitUtil;
+import com.leeorz.lib.util.UnitUtils;
 import com.leeorz.lib.widget.loadmore.AutoLoadMoreListView;
 import com.leeorz.lib.widget.refresh.header.CircleProgressHeader;
 
@@ -65,7 +65,7 @@ public class RefreshListView extends RefreshLayout {
      * @param height
      */
     public void setDividerHeight(int height){
-        autoLoadMoreListView.setDividerHeight(UnitUtil.dp2px(getContext(),height));
+        autoLoadMoreListView.setDividerHeight(UnitUtils.dp2px(getContext(),height));
     }
 
     /**

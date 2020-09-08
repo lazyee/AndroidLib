@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.leeorz.lib.R;
-import com.leeorz.lib.utils.AppUtil;
-import com.leeorz.lib.utils.ToastUtil;
+import com.leeorz.lib.util.AppUtils;
+import com.leeorz.lib.util.ToastUtils;
 
 
 /**
@@ -125,8 +125,8 @@ public class LoadMoreFooterView extends LinearLayout implements View.OnClickList
     public void onClick(View v) {
         if(v.getId() == R.id.tv_retry) {
             if(onLoadMoreListener != null){
-                if(!AppUtil.isNetworkAvailable(getContext())){
-                    ToastUtil.showShort(getContext(),"当前设备无网络连接，请打开网络再试...");
+                if(!AppUtils.isNetworkAvailable(getContext())){
+                    ToastUtils.showShort(getContext(),"当前设备无网络连接，请打开网络再试...");
                     return;
                 }
                 loading();

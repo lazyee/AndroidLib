@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.leeorz.lib.R;
-import com.leeorz.lib.utils.UnitUtil;
+import com.leeorz.lib.util.UnitUtils;
 import com.leeorz.lib.widget.CircleProgress;
 
 
@@ -55,7 +55,7 @@ public class CircleProgressHeader extends BaseRefreshHeader {
         circleProgress = (CircleProgress) contentView.findViewById(R.id.circleProgress);
         ivCircle = (ImageView) contentView.findViewById(R.id.iv_circle);
         rlLayout = (RelativeLayout) contentView.findViewById(R.id.rl_layout);
-        setContainerHeight(UnitUtil.dp2px(getContext(),60));
+        setContainerHeight(UnitUtils.dp2px(getContext(),60));
     }
 
 

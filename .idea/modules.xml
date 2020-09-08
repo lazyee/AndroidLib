@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LeeorzLib.iml" filepath="$PROJECT_DIR$/LeeorzLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LeeorzLib/LeeorzLib.iml" filepath="$PROJECT_DIR$/LeeorzLib/LeeorzLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/LeeorzLib/LeeorzLib-LeeorzLib.iml" filepath="$PROJECT_DIR$/LeeorzLib/LeeorzLib-LeeorzLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LeeorzLib-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LeeorzLib-app.iml" group="LeeorzLib/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LeeorzLib/com.github.Leekajun-LeeorzLib-LeeorzLib.iml" filepath="$PROJECT_DIR$/.idea/modules/LeeorzLib/com.github.Leekajun-LeeorzLib-LeeorzLib.iml" group="LeeorzLib/LeeorzLib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/git-LeeorzLib.iml" filepath="$PROJECT_DIR$/.idea/modules/git-LeeorzLib.iml" group="LeeorzLib" />
       <module fileurl="file://$PROJECT_DIR$/lib.iml" filepath="$PROJECT_DIR$/lib.iml" />
     </modules>
   </component>

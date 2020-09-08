@@ -2,13 +2,12 @@ package com.leeorz.lib.app;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
 import android.os.Environment;
 import android.util.DisplayMetrics;
 
-import com.leeorz.lib.utils.AppUtil;
-import com.leeorz.lib.utils.DateUtil;
-import com.leeorz.lib.utils.FileUtil;
+import com.leeorz.lib.util.AppUtils;
+import com.leeorz.lib.util.DateUtils;
+import com.leeorz.lib.util.FileUtils;
 
 import java.io.File;
 
@@ -180,9 +179,9 @@ public class AppConfig {
 			AppConfig.SCREEN_HEIGHT = dm.heightPixels;
 			AppConfig.SCREEN_WIDTH = dm.widthPixels;
 
-			APP_VERISON_CODE = AppUtil.getVersionCode(context);
+			APP_VERISON_CODE = AppUtils.getVersionCode(context);
 
-			DEVICE_ID = AppUtil.getPesudoUniqueID();
+			DEVICE_ID = AppUtils.getPesudoUniqueID();
 			initAppFolder(context);
 		}
 	}
@@ -196,7 +195,7 @@ public class AppConfig {
 		DEFUALT_CACHE_DIR = APPNAME + File.separator + "temp" + File.separator;
 
 		//缓存目录
-		DATA_CACHE_PATH = AppUtil.isSDCard() == true ? Environment
+		DATA_CACHE_PATH = AppUtils.isSDCard() == true ? Environment
 				.getExternalStorageDirectory().getPath()
 				+ File.separator
 				+ DEFUALT_CACHE_DIR
@@ -216,7 +215,7 @@ public class AppConfig {
 		APP_PATH = context.getCacheDir().getPath() + File.separator;
 
 		//图片目录
-		IMAGE_PATH = (AppUtil.isSDCard() == true ? Environment.getExternalStorageDirectory().getPath()
+		IMAGE_PATH = (AppUtils.isSDCard() == true ? Environment.getExternalStorageDirectory().getPath()
 				+ File.separator
 				+ DEFUALT_CACHE_DIR
 				+ IMAGE_DIR_NAME
@@ -227,7 +226,7 @@ public class AppConfig {
 				+ IMAGE_DIR_NAME
 				+ File.separator);
 		//图片目录
-		IMAGE_PATH_NOMEDIA = (AppUtil.isSDCard() == true ? Environment
+		IMAGE_PATH_NOMEDIA = (AppUtils.isSDCard() == true ? Environment
 				.getExternalStorageDirectory().getPath()
 				+ File.separator
 				+ DEFUALT_CACHE_DIR
@@ -244,7 +243,7 @@ public class AppConfig {
 				+ IMAGE_DIR_NAME2
 				+ File.separator);
 		//音频目录
-		VOICE_PATH = (AppUtil.isSDCard() == true ? Environment
+		VOICE_PATH = (AppUtils.isSDCard() == true ? Environment
 				.getExternalStorageDirectory().getPath()
 				+ File.separator
 				+ DEFUALT_CACHE_DIR
@@ -261,7 +260,7 @@ public class AppConfig {
 				+ VOICE_DIR_NAME
 				+ File.separator);
 		//视频目录
-		VIDEO_PATH = (AppUtil.isSDCard() == true ? Environment
+		VIDEO_PATH = (AppUtils.isSDCard() == true ? Environment
 				.getExternalStorageDirectory().getPath()
 				+ File.separator
 				+ DEFUALT_CACHE_DIR
@@ -279,7 +278,7 @@ public class AppConfig {
 				+ File.separator);
 
 		//错误日志目录
-		LOG_PATH = (AppUtil.isSDCard() == true ? Environment
+		LOG_PATH = (AppUtils.isSDCard() == true ? Environment
 				.getExternalStorageDirectory().getPath()
 				+ File.separator
 				+ DEFUALT_CACHE_DIR
@@ -294,16 +293,16 @@ public class AppConfig {
 
 
 		//初始化错误日志文件路径
-		ERROR_FILE_PATH = LOG_PATH +"error" + DateUtil.getCurrentDate(DateUtil.dateFormatYMD) + ".txt";
+		ERROR_FILE_PATH = LOG_PATH +"error" + DateUtils.getCurrentDate(DateUtils.dateFormatYMD) + ".txt";
 
 		//创建文件夹
-		FileUtil.createFolder(IMAGE_PATH);
-		FileUtil.createFolder(IMAGE_PATH_NOMEDIA);
-		FileUtil.createFolder(DATA_CACHE_PATH);
-		FileUtil.createFolder(LOG_PATH);
-		FileUtil.createFolder(VOICE_PATH);
-		FileUtil.createFolder(VIDEO_PATH);
-		FileUtil.createFolder(INTERNAL_DATA_CACHE_PATH);
+		FileUtils.createFolder(IMAGE_PATH);
+		FileUtils.createFolder(IMAGE_PATH_NOMEDIA);
+		FileUtils.createFolder(DATA_CACHE_PATH);
+		FileUtils.createFolder(LOG_PATH);
+		FileUtils.createFolder(VOICE_PATH);
+		FileUtils.createFolder(VIDEO_PATH);
+		FileUtils.createFolder(INTERNAL_DATA_CACHE_PATH);
 
 
 	}
